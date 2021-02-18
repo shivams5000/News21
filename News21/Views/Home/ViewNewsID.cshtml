@@ -1,0 +1,46 @@
+﻿@model News21.Models.NewsInfo
+
+@{
+    ViewData["Title"] = "View News";
+}
+
+<h1>View News</h1>
+<br/>
+<div class="row" data-aos="fade-up">
+    <div class="col-lg-12 stretch-card grid-margin">
+        <div class="card">
+            <div class="card-body">
+                
+                    <div class="row">
+                        <div class="col-sm-4 grid-margin">
+                            <div class="position-relative">
+                                <div class="rotate-img">
+                                    <img src="~/newsphotos/@Html.DisplayFor(model => model.NewsID)@Html.DisplayFor(model => model.Extension)" alt="thumb" class="img-fluid" />
+                                </div>
+                                <div class="badge-positioned">
+                                    <span class="badge badge-danger font-weight-bold">  @Html.DisplayFor(model => model.NewsCategory.CategoryName)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8  grid-margin">
+                            <h2 class="mb-2 font-weight-600">
+                                @Html.DisplayFor(model => model.NewsTitle)
+                            </h2>
+                            <div class="fs-13 mb-2">
+                                <span class="mr-2">Country </span> @Html.DisplayFor(model => model.Country.CountryName)
+                            </div>
+                            <p class="mb-0">
+                                @Html.DisplayFor(model => model.Description)
+                            </p>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-controller="NewsComments" asp-action="Create" class="btn btn-warning">News Comments</a>
+    <a asp-action="Index" class="btn btn-warning">Back to List</a>
+    
+</div>

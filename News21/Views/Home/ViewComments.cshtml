@@ -1,0 +1,46 @@
+﻿@model IEnumerable<News21.Models.NewsComment>
+
+@{
+    ViewData["Title"] = "ViewComments";
+}
+
+<h1>ViewComments</h1>
+
+
+<table class="table" cellpadding="10" cellspacing="10">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CommentText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CommentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReviewerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.News)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommentText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommentDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReviewerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.News.Description)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
